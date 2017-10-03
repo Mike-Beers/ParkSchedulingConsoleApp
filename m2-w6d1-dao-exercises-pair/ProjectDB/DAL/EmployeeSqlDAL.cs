@@ -12,7 +12,7 @@ namespace ProjectDB.DAL
     {
         private string getAllEmployeesSQL = @"SELECT * FROM employee";
         private string searchSQL = @"SELECT * FROM employee WHERE first_name = @first_name AND last_name = @last_name";
-        private string getEmployeesWithoutProjectsSQL = @"SELECT * FROM employee JOIN project_employee ON project_employee.employee_id = employee.employee_id WHERE project_employee.project_id IS NULL";
+        private string getEmployeesWithoutProjectsSQL = @"SELECT * FROM employee LEFT JOIN project_employee ON project_employee.employee_id = employee.employee_id WHERE NOT (project_employee.project_id IS NOT NULL)";
         private string connectionString;
 
         // Single Parameter Constructor
