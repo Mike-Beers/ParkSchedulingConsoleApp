@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 # git config --global user.name "John Fulton"
 # git config --global user.email "john@techelevator.com"
 # git config --global core.excludesfile c:/users/jfuton/.gitignore_global
+=======
+# git config --global user.name "John Fultoni"
+# git config --global user.email "john@techelevator.com"
+# git config --global core.excludesfile “c:/user/<username>/.gitignore_global.txt”
+# git config --global user.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession"
+
+
+
+>>>>>>> a26c92a2eea43cfb082df310b2f82267c18c171c
 
 # git   .gitignore_global    file
 #

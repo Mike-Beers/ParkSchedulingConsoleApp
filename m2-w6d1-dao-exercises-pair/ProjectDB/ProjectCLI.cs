@@ -22,6 +22,7 @@ namespace ProjectDB
         const string Command_AssignEmployeeToProject = "9";
         const string Command_RemoveEmployeeFromProject = "10";
         const string Command_Quit = "q";
+
         private string DatabaseConnection = ConfigurationManager.ConnectionStrings["ProjectConnection"].ConnectionString;
 
 

@@ -30,7 +30,7 @@ namespace Capstone.DAL
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("SELECT * FROM park;", conn);
+                    SqlCommand command = new SqlCommand("SELECT * FROM park ORDER BY name ASC;", conn);
                     SqlDataReader results = command.ExecuteReader();
                     while (results.Read())
                     {
@@ -45,6 +45,8 @@ namespace Capstone.DAL
 
             return parkList;
         }
+       
+        
         private Park CreateFromRow(SqlDataReader results)
         {
             Park park = new Park();

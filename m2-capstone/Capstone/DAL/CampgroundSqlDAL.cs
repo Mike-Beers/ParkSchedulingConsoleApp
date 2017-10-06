@@ -43,6 +43,7 @@ namespace Capstone.DAL
 
             return campgrounds;
         }
+
         //public string GetCost(int campground_id, DateTime from_date, DateTime to_date)
         //{
         //    int numOfDays = (to_date - from_date).Days;
