@@ -13,6 +13,5 @@ namespace Capstone
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["CapstoneDatabase"].ConnectionString;
 
-
     }
 }
