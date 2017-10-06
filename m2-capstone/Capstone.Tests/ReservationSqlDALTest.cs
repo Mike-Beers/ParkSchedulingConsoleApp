@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Threading;
 
 namespace Capstone.Tests
 {
@@ -16,20 +17,22 @@ namespace Capstone.Tests
     {
         private TransactionScope tran;
         private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=campground;Integrated Security=True";
-        private int reservationId;
+        private int reservationIdColumn;
 
         [TestInitialize]
         public void Initialize()
         {
-            tran = new TransactionScope();
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command;
-                conn.Open();
 
-                command = new SqlCommand("INSERT INTO reservation VALUES (1, TestName, '08/28/1990', '09/14/1990', GETDATE(); SELECT CAST (SCOPE_IDENTITY() AS int)", conn);
-                reservationId = (int)command.ExecuteScalar();
+                tran = new TransactionScope();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
         }
 
         [TestCleanup]
@@ -42,15 +45,22 @@ namespace Capstone.Tests
         public void CreateReservationTest()
         {
 
+
             ReservationSqlDAL reservationDAL = new ReservationSqlDAL(connectionString);
+            int reservationId = reservationDAL.CreateReservation(1, "TestName", new DateTime(1990, 08, 28), new DateTime(1990, 09, 14));
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                //SqlCommand command;
+                conn.Open();
 
-            Reservation reservationTestObj = new Reservation();
-            reservationTestObj {
-
+                //command = new SqlCommand("INSERT INTO reservation VALUES (1, TestName, '08/28/1990', '09/14/1990', GETDATE(); SELECT CAST (SCOPE_IDENTITY() AS int)", conn);
+                SqlCommand command = new SqlCommand("SELECT * FROM reservation WHERE name = 'TestName'; SELECT CAST(SCOPE_IDENTITY() AS int)", conn);
+                reservationIdColumn = (int)command.ExecuteScalar();
             }
-            bool createdDepartment = departmentDAL.CreateDepartment(departmentTestObj);
+            Assert.AreEqual(reservationId, reservationIdColumn);
 
-            Assert.AreEqual(true, createdDepartment);
+            // Assert.IsTrue(true);
+
         }
     }
 }

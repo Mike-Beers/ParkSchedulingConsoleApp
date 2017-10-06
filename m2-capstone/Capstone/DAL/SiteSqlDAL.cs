@@ -86,7 +86,7 @@ namespace Capstone.DAL
                     }
                 }
             }
-            catch(SqlException)
+            catch(SqlException e)
             {
                 throw;
             }

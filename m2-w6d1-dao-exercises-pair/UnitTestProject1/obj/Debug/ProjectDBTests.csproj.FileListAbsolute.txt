@@ -13,3 +13,19 @@ C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-w
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\ProjectDBTests.csprojResolveAssemblyReference.cache
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\ProjectDB.exe
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\ProjectDB.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\ProjectDB.exe.config
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\ProjectDBTests.csprojResolveAssemblyReference.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\ProjectDBTests.csproj.CoreCompileInputs.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

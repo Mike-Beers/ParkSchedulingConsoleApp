@@ -26,7 +26,7 @@ namespace Capstone.DAL
             try
             {
 
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 

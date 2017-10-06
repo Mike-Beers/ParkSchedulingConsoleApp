@@ -7,3 +7,13 @@ C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-c
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.csprojResolveAssemblyReference.cache
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.dll
 C:\Users\aosterfeld\annieosterfeld-c-exercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Capstone.Tests.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Capstone.Tests.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Capstone.exe
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Capstone.pdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\bin\Debug\Capstone.exe.config
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.csprojResolveAssemblyReference.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.csproj.CoreCompileInputs.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.dll
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-capstone\Capstone.Tests\obj\Debug\Capstone.Tests.pdb
