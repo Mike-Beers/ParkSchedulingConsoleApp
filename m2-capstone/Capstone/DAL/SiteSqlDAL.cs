@@ -17,7 +17,7 @@ namespace Capstone.DAL
             connectionString = dbConnectionString;
         }
 
-        public List<Site> GetAllSites()
+        public List<Site> GetAllSites(Campground selectedCampground)
         {
             List<Site> sites = new List<Site>();
             try
@@ -25,7 +25,8 @@ namespace Capstone.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand("SELECT * FROM site", conn);
+                    SqlCommand command = new SqlCommand("SELECT * FROM site WHERE campground_id = @campground_id", conn);
+                    command.Parameters.AddWithValue("@campground_id", selectedCampground.Campground_id);
                     SqlDataReader results = command.ExecuteReader();
                     while (results.Read())
                     {
@@ -39,7 +40,7 @@ namespace Capstone.DAL
             }
             return sites;
         }
-        public List<Site> GetTop5Sites()
+        public List<Site> GetTop5Sites(Campground selectedCampground)
         {
             List<Site> top5Sites = new List<Site>();
             try
@@ -47,7 +48,8 @@ namespace Capstone.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM site ORDER BY max_occupancy DESC;", conn);
+                    SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM site WHERE campground_id = @campground_id ORDER BY max_occupancy DESC;", conn);
+                    command.Parameters.AddWithValue("@campground_id", selectedCampground.Campground_id);
                     SqlDataReader results = command.ExecuteReader();
                     while (results.Read())
                     {
