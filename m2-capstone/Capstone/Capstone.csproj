@@ -48,6 +48,11 @@
     <Compile Include="DAL\ReservationSqlDAL.cs" />
     <Compile Include="Models\Park.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="ParkSystemCLI.cs" />
+    <Compile Include="DAL\CampgroundSqlDAL.cs" />
+    <Compile Include="DAL\SiteSqlDAL.cs" />
+    <Compile Include="Models\Campground.cs" />
+    <Compile Include="Models\Site.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

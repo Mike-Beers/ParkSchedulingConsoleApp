@@ -20,7 +20,9 @@ namespace Capstone.Models
 
         public override string ToString()
         {
-            return $"{Park_name.ToString()} National Park\nLocation: {Park_location.ToString().PadLeft(15)}\nEstablished: {Established_dateTime.ToShortDateString().PadLeft(15)}\nArea: {Area.ToString().PadLeft(15)}\nAnnual Visitors: {Annual_visit_count.ToString().PadLeft(15)}\n";
+            //return $"{Park_name.ToString()} National Park\nLocation: {String.Format("{0, -5}",Park_location.ToString())}\nEstablished: {String.Format("{0,-5}",Established_dateTime.ToShortDateString())}\nArea: {String.Format("{0,-5}", String.Format("{0:n0}",Area).ToString() + " sq km")}\nAnnual Visitors: {String.Format("{0,-5}",String.Format("{0:n0}", Annual_visit_count).ToString())}\n";
+            return $"{Park_name.ToString()} National Park\n" + "Location:".PadRight(20) + $" {Park_location.ToString()}\n" + "Established:".PadRight(21) + $"{Established_dateTime.ToShortDateString()}\n" + "Area:".PadRight(20) + $" {(String.Format("{0:n0}", Area).ToString() + " sq km")}\n" + "Annual Visitors:".PadRight(20) + $" {String.Format("{0:n0}", Annual_visit_count).ToString()}\n";
+
         }
     }
 }

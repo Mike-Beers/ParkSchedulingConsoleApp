@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    class Reservation
+    public class Reservation
     {
         public int Reservation_id { get; set; }
         public int Site_id { get; set; }
@@ -15,16 +15,11 @@ namespace Capstone.Models
         public DateTime Reservation_to_date { get; set; }
         public DateTime Reservation_create_date { get; set; }
         public int Number_of_nights { get; set; }
+        public int Cost { get; set; }
 
         public override string ToString()
         {
             return $"";
-        }
-        private string GetCost(int numberOfNights)
-        {
-            string cost = "";
-
-            return cost;
         }
     }
 }
