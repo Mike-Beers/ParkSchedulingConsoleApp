@@ -41,6 +41,33 @@ namespace Capstone.DAL
 
             return campgrounds;
         }
+
+        public List<Campground> GetCampgrounds(Park selectedPark)
+        {
+            List<Campground> parkCampgrounds = new List<Campground>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("SELECT * FROM campground WHERE park_id = @park_id", conn);
+                    command.Parameters.AddWithValue("@park_id", selectedPark.Park_id);
+
+                    SqlDataReader results = command.ExecuteReader();
+                    while (results.Read())
+                    {
+                        parkCampgrounds.Add(GetCampgroundFromRow(results));
+                    }
+                }
+
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return parkCampgrounds;
+        }
         //public string GetCost(int campground_id, DateTime from_date, DateTime to_date)
         //{
         //    int numOfDays = (to_date - from_date).Days;

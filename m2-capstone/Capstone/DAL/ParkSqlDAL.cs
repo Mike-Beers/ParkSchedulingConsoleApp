@@ -26,7 +26,7 @@ namespace Capstone.DAL
             try
             {
 
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
@@ -45,6 +45,8 @@ namespace Capstone.DAL
 
             return parkList;
         }
+       
+        
         private Park CreateFromRow(SqlDataReader results)
         {
             Park park = new Park();

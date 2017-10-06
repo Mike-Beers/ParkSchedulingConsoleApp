@@ -22,12 +22,9 @@ namespace ProjectDB
         const string Command_AssignEmployeeToProject = "9";
         const string Command_RemoveEmployeeFromProject = "10";
         const string Command_Quit = "q";
-<<<<<<< HEAD
+
         private string DatabaseConnection = ConfigurationManager.ConnectionStrings["ProjectConnection"].ConnectionString;
-=======
-        private string DatabaseConnection = 
-            ConfigurationManager.ConnectionStrings["ProjectsConnection"].ConnectionString;
->>>>>>> f352e0e3bc069be361bcacae1573423e0ce7ebdb
+
 
         public void RunCLI()
         {
