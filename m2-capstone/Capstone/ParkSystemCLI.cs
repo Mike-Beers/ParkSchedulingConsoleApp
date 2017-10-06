@@ -17,6 +17,7 @@ namespace Capstone
 
 
 
+
         public void RunCLI()
         {
             GetParks(); //prints out the list of all possible parks to choose from
@@ -67,5 +68,6 @@ namespace Capstone
         {
 
         }
+
     }
 }

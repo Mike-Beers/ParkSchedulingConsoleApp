@@ -35,7 +35,8 @@ namespace Capstone.Tests
         [TestCleanup]
         public void CleanUp()
         {
-            tran.Dispose();
+            tran.Complete();
+            //tran.Dispose();
         }
 
         [TestMethod]
@@ -47,5 +48,7 @@ namespace Capstone.Tests
             Assert.IsNotNull(parkList);
             Assert.AreEqual(parks, parkList.Count);
         }
+
+
     }
 }

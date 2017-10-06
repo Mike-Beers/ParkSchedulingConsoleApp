@@ -14,3 +14,7 @@ C:\Users\brian\Documents\TechElevator\Cohort 3\c-week6-pair-exercises\m2-w6d1-da
 C:\Users\brian\Documents\TechElevator\Cohort 3\c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.exe
 C:\Users\brian\Documents\TechElevator\Cohort 3\c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.pdb
 >>>>>>> f352e0e3bc069be361bcacae1573423e0ce7ebdb
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.csprojResolveAssemblyReference.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.csproj.CoreCompileInputs.cache
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.exe
+C:\Users\mbeers\Group Excercises\team5-c-week6-pair-exercises\m2-w6d1-dao-exercises-pair\ProjectDB\obj\Debug\ProjectDB.pdb

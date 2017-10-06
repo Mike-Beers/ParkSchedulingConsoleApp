@@ -1,0 +1,61 @@
+# git config --global user.name "John Fultoni"
+# git config --global user.email "john@techelevator.com"
+# git config --global core.excludesfile “c:/user/<username>/.gitignore_global.txt”
+# git config --global user.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession"
+
+
+
+
+# git   .gitignore_global    file
+#
+# ignore thumbnails created by windows
+Thumbs.db
+# Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.dll
+*.lib
+*.sbr
+bin/
+obj/
+packages/
+.vs/
+
+#
+# end of git ignore file contents
+#
+
+#
+#
+# typical .gitconfig file contents after configuration
+# file is usually located in user’s home directory
+#
+# (actual lines in .gitconfig file do not begin with comment (‘#’) character)
+
+
+# [filter "lfs"]
+# 	smudge = git-lfs smudge -- %f
+# 	required = true
+# 	clean = git-lfs clean -- %f
+# [user]
+# 	name = John Fulton
+# 	email = john@TechElevator.com
+# 	editor = "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession"
+# [core]
+# 	editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -nosession -multiInst
+# 	excludesfile = C:/Users/john/.gitignore_global

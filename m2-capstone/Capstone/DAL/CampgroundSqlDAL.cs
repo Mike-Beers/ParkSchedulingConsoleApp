@@ -17,7 +17,7 @@ namespace Capstone.DAL
             connectionString = dbConnectionString;
         }
 
-        public List<Campground> GetAllCampgrounds()
+        public List<Campground> GetCampgrounds(Park selectedPark)
         {
             List<Campground> campgrounds = new List<Campground>();
             try
@@ -25,7 +25,9 @@ namespace Capstone.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand("SELECT * FROM campground", conn);
+                    SqlCommand command = new SqlCommand("SELECT * FROM campground WHERE park_id = @park_id", conn);
+                    command.Parameters.AddWithValue("@park_id", selectedPark.Park_id);
+
                     SqlDataReader results = command.ExecuteReader();
                     while (results.Read())
                     {
