@@ -22,6 +22,14 @@ namespace Capstone
             ParkSystemCLI cli = new ParkSystemCLI();
             cli.RunCLI();
 
+
+
+
+
+
+
+
+
             //CampgroundSqlDAL campground = new CampgroundSqlDAL(connectionString);
             //List<Campground> newList = campground.GetAllCampgrounds();
             //foreach (Campground value in newList)

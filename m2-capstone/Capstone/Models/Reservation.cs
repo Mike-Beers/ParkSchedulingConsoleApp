@@ -14,12 +14,7 @@ namespace Capstone.Models
         public DateTime Reservation_from_date { get; set; }
         public DateTime Reservation_to_date { get; set; }
         public DateTime Reservation_create_date { get; set; }
-        public int Number_of_nights { get; set; }
-        public int Cost { get; set; }
 
-        public override string ToString()
-        {
-            return $"";
-        }
+
     }
 }

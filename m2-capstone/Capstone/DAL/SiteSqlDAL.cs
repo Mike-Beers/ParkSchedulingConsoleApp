@@ -71,12 +71,18 @@ namespace Capstone.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand("SELECT * FROM site JOIN reservation ON reservation.site_id = site.site_id   " +
-                        "WHERE campground_id = @campground_id " +
-                        "AND @from_date NOT BETWEEN from_date AND to_date " +
-                        "AND @to_date NOT BETWEEN from_date AND to_date" +
-                        "AND from_date NOT BETWEEN @from_date AND @to_date" +
-                        "AND to_date NOT BETWEEN @from_date AND @to_date", conn);
+                    SqlCommand command = new SqlCommand("SELECT *  from site where campground_id = @campground_id AND site.site_id NOT IN (SELECT site.site_id " +
+                        "FROM site JOIN reservation ON reservation.site_id = site.site_id   " +
+                        "AND (@from_date BETWEEN from_date AND to_date " +
+                        "OR @to_date  BETWEEN from_date AND to_date) " +
+                        "AND (from_date  BETWEEN  @from_date  AND @to_date " +
+                        "OR to_date  BETWEEN @from_date AND @to_date) " +
+                       // "AND (@from_date = from_date " +
+                        //"OR @to_date = to_date) " +
+                        "GROUP BY site.site_id)", conn);
+                    //selecting anything outside of the bounds, 
+                    //want to exclude anything that is inside the bounds
+                    //want to select all sites except ones with reservations in the bounds
                     command.Parameters.AddWithValue("@from_date", from_date);
                     command.Parameters.AddWithValue("@to_date", to_date);
                     command.Parameters.AddWithValue("@campground_id", campground_id);
@@ -88,7 +94,7 @@ namespace Capstone.DAL
                     }
                 }
             }
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 throw;
             }
@@ -116,7 +122,7 @@ namespace Capstone.DAL
                 throw;
             }
             cost *= numOfDays;
-            string costString = String.Format("{0:C}",cost);
+            string costString = String.Format("{0:C}", cost);
 
             return costString;
         }
