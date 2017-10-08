@@ -29,7 +29,6 @@ namespace Capstone
 
 
 
-
             //CampgroundSqlDAL campground = new CampgroundSqlDAL(connectionString);
             //List<Campground> newList = campground.GetAllCampgrounds();
             //foreach (Campground value in newList)
