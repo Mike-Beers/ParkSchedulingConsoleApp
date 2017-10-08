@@ -17,13 +17,13 @@ namespace Capstone
         public void RunCLI()
         {
             string input = "";
+            string input2 = "2";
             ParkSqlDAL dal = new ParkSqlDAL(connectionString);
             List<Park> parksList = dal.GetAllParks();
             Park selectedPark = null;
 
             while (true)
             {
-
                 GetParks();                             //prints out the list of all possible parks to choose from
                 input = Console.ReadLine();
                 Console.Clear();
@@ -31,42 +31,63 @@ namespace Capstone
                 {
                     return;
                 }
+
+                RestartDisplayPark:
+
                 selectedPark = DisplayPark(input);
 
-                if (selectedPark == null) { }     //displays all information about a single park IF THE SELECTED PARK IS NULL WE NEED TO START THE LOOP OVER AGAIN
+                if (selectedPark == null) { }     //displays all information about a single park, unless the selected park is null
                 else if (selectedPark != null)
                 {
-
-                    ParkInfoMenu();                     // 3 options: view campgrounds, search reservation, or previous screen
-                    input = Console.ReadLine();
-                    Console.Clear();
+                    input = null;
+                    while (input == null)
+                    {
+                        ParkInfoMenu();                     // 3 options: view campgrounds, search reservation, or previous screen
+                        input = Console.ReadLine();
+                        Console.Clear();
+                    }
                 }
 
                 if (input == "1")
                 {
+                    RestartViewCampGround:
                     ViewCampgrounds(selectedPark);  //all campgrounds of a selected park
                     CamprgroundMenu();              // 2 options: search for reservation, previous screen
-                    string input2 = Console.ReadLine();
+                    input2 = Console.ReadLine();
                     Console.Clear();
 
                     if (input2 == "1")
                     {
-                        SearchForReservationMenu(selectedPark);
-                        MakeReservationMenu();
+                        if (SearchForReservationMenu(selectedPark))
+                        {
+                            MakeReservationMenu();
+                        }
+                        else
+                        {
+                            goto RestartViewCampGround;
+                        }
                     }
                     else if (input2 == "2")
                     {
-                        //back to main menu
+                        goto RestartDisplayPark;
                     }
                     else
                     {
                         Console.WriteLine("Please select a valid menu option.");
+                        goto RestartViewCampGround;
                     }
                 }
                 else if (input == "2")
                 {
-                    SearchForReservationMenu(selectedPark);
-                    MakeReservationMenu();
+                   // RestartReservationMenu:
+                    if (SearchForReservationMenu(selectedPark))
+                    {
+                        MakeReservationMenu();
+                    }
+                    else
+                    {
+                       // goto RestartViewCampGround;
+                    }
                 }
                 else if (input == "3") { }
                 else
@@ -92,7 +113,7 @@ namespace Capstone
             Console.WriteLine("1) Search for Available Reservation");
             Console.WriteLine("2) Return To Previous Screen");
         }
-        private void SearchForReservationMenu(Park selectedPark)
+        private bool SearchForReservationMenu(Park selectedPark)
         {
 
             Console.Clear(); //new
@@ -102,30 +123,42 @@ namespace Capstone
 
             string[] reservationInputs = ReservationInput();
 
-
-            int campground_id = Convert.ToInt32(reservationInputs[0]);
-
-
-            DateTime from_date = Convert.ToDateTime(reservationInputs[1]);
-            reservation.Reservation_from_date = from_date;
-
-            DateTime to_date = Convert.ToDateTime(reservationInputs[2]);
-            reservation.Reservation_to_date = to_date;
-
-            //if (campground_id == 0)
-            //{
-            //    ViewCampgrounds(selectedPark);
-            //}
-
-
-            List<Site> availableSites = siteSqlDAL.GetAvailableSites(campground_id, from_date, to_date);
-            foreach (Site site in availableSites)
+            if (reservationInputs[0] != "0")
             {
-                Console.WriteLine(site.ToString() + siteSqlDAL.GetCost(campground_id, from_date, to_date));
+                bool validCampgroundId = int.TryParse(reservationInputs[0], out int campground_id);
+                bool validFromDate = DateTime.TryParse(reservationInputs[1], out DateTime from_date);
+                bool validToDate = DateTime.TryParse(reservationInputs[2], out DateTime to_date);
+                if (validCampgroundId && validFromDate && validToDate)
+                {
+                    // int campground_id = Convert.ToInt32(reservationInputs[0]);
 
+                    // DateTime from_date = Convert.ToDateTime(reservationInputs[1]);
+
+                    //DateTime to_date = Convert.ToDateTime(reservationInputs[2]);
+                    reservation.Reservation_from_date = from_date;
+                    reservation.Reservation_to_date = to_date;
+
+                    List<Site> availableSites = siteSqlDAL.GetAvailableSites(campground_id, from_date, to_date);
+                    foreach (Site site in availableSites)
+                    {
+                        Console.WriteLine(site.ToString() + siteSqlDAL.GetCost(campground_id, from_date, to_date));
+
+                    }
+                    return true;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid Input, Check Campground ID or Date Formats");
+                    Console.WriteLine();
+                    return false;
+                }
             }
-
-        }        //NEED TO MAKE 0 START OUR RUNNING LOOP OVER
+            else
+            {
+                return false;
+            }
+        }
         private void MakeReservationMenu()
         {
 
@@ -186,7 +219,7 @@ namespace Capstone
             bool parsed = int.TryParse(input, out int selection);
             if (parsed)
             {
-                if (selection <= parkInfo.Count())
+                if (selection <= parkInfo.Count() && selection != 0)
                 {
                     selectedPark = parkInfo[selection - 1];
                     Console.WriteLine(selectedPark.ToString());
