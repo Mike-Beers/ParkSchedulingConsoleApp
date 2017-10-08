@@ -95,7 +95,7 @@ namespace Capstone
         private void SearchForReservationMenu(Park selectedPark)
         {
 
-
+            Console.Clear(); //new
             ViewCampgrounds(selectedPark);
             SiteSqlDAL siteSqlDAL = new SiteSqlDAL(connectionString);
 
@@ -208,7 +208,6 @@ namespace Capstone
         {
             CampgroundSqlDAL campgroundDAL = new CampgroundSqlDAL(connectionString);
             List<Campground> campgrounds = campgroundDAL.GetCampgrounds(selectedPark);
-
             foreach (Campground campground in campgrounds)
             {
                 Console.WriteLine(campground.ToString());
