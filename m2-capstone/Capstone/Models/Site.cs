@@ -18,7 +18,7 @@ namespace Capstone.Models
 
         public override string ToString()
         {
-            return $"{Site_number.ToString().PadRight(5)} {Max_occupancy.ToString().PadRight(10)} {Accessible.ToString().PadRight(5)} {Max_rv_length.ToString().PadRight(10)} {Utilities.ToString().PadRight(5)}";
+            return $"{Site_id.ToString().PadRight(5)} {Site_number.ToString().PadRight(5)} {Max_occupancy.ToString().PadRight(10)} {Accessible.ToString().PadRight(5)} {Max_rv_length.ToString().PadRight(10)} {Utilities.ToString().PadRight(5)}";
         }
     }
 }

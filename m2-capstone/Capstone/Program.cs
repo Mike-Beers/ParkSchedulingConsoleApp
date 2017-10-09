@@ -19,9 +19,10 @@ namespace Capstone
             // Use this so that you don't need to copy your connection string all over your code!
             string connectionString = ConfigurationManager.ConnectionStrings["CapstoneDatabase"].ConnectionString;
 
-            ParkSystemCLI cli = new ParkSystemCLI();
+            //ParkSystemCLI cli = new ParkSystemCLI();
+            //cli.RunCLI();
+            ParkSystemCLI2 cli = new ParkSystemCLI2();
             cli.RunCLI();
-
 
 
 

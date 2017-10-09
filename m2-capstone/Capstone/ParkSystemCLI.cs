@@ -86,7 +86,7 @@ namespace Capstone
                     }
                     else
                     {
-                       // goto RestartViewCampGround;
+                      //  goto
                     }
                 }
                 else if (input == "3") { }
