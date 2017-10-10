@@ -11,7 +11,7 @@ namespace Capstone.Models
     public class Park
     {
         public int Park_id { get; set; }
-        public string Park_name{ get; set; }
+        public string Park_name { get; set; }
         public string Park_location { get; set; }
         public DateTime Established_dateTime { get; set; }
         public int Area { get; set; }
@@ -21,13 +21,37 @@ namespace Capstone.Models
         public override string ToString()
         {
             //return $"{Park_name.ToString()} National Park\nLocation: {String.Format("{0, -5}",Park_location.ToString())}\nEstablished: {String.Format("{0,-5}",Established_dateTime.ToShortDateString())}\nArea: {String.Format("{0,-5}", String.Format("{0:n0}",Area).ToString() + " sq km")}\nAnnual Visitors: {String.Format("{0,-5}",String.Format("{0:n0}", Annual_visit_count).ToString())}\n";
-            return $"{Park_name.ToString()} National Park\n" + 
-                "Location:".PadRight(20) + $" {Park_location.ToString()}\n" + 
-                "Established:".PadRight(21) + $"{Established_dateTime.ToShortDateString()}\n" + 
-                "Area:".PadRight(20) + $" {(String.Format("{0:n0}", Area).ToString() + " sq km")}\n" + 
-                "Annual Visitors:".PadRight(20) + $" {String.Format("{0:n0}", Annual_visit_count).ToString()}\n" + 
-                "Description: \n".PadRight(20) + $"{Description.ToString()}";
+            return $"{Park_name.ToString()} National Park\n" +
+                "Location:".PadRight(20) + $" {Park_location.ToString()}\n" +
+                "Established:".PadRight(21) + $"{Established_dateTime.ToShortDateString()}\n" +
+                "Area:".PadRight(20) + $" {(String.Format("{0:n0}", Area).ToString() + " sq km")}\n" +
+                "Annual Visitors:".PadRight(20) + $" {String.Format("{0:n0}", Annual_visit_count).ToString()}\n" +
+                "Description: \n".PadRight(20) + $"{ParagraphFormat(Description)}";
 
+        }
+
+        private string ParagraphFormat(string description)
+        {
+            const int charLimit = 75;
+            int count = 0;
+            string[] wordArray = description.Split(' ');
+            string output = "";
+
+            for (int i = 0; i < wordArray.Length; i++)
+            {
+                if (count >= charLimit)
+                {
+                    output += "\n";
+                    count = 0;
+                }
+                else
+                {
+                    output += wordArray[i] + " ";
+                    count += wordArray[i].Length;
+                }
+            }
+
+            return output;
         }
     }
 }
