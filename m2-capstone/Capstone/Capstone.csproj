@@ -49,7 +49,6 @@
     <Compile Include="Models\Park.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="ParkSystemCLI2.cs" />
-    <Compile Include="ParkSystemCLI.cs" />
     <Compile Include="DAL\CampgroundSqlDAL.cs" />
     <Compile Include="DAL\SiteSqlDAL.cs" />
     <Compile Include="Models\Campground.cs" />

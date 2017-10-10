@@ -21,8 +21,10 @@ namespace Capstone
         {
             while (input != "q")
             {
+                Console.Clear();
                 switch (input)
                 {
+                   
                     case "1":
                         selectedPark = GetParks();
                         break;
@@ -94,7 +96,7 @@ namespace Capstone
                         Console.ReadLine();
                     }
                 }
-                Console.Clear();
+
             }
             return selectedPark;
         }
@@ -112,20 +114,19 @@ namespace Capstone
             {
                 case "1":
                     input = "3";
-                    Console.Clear();
+            
                     break;
                 case "2":
                     input = "4";
-                    Console.Clear();
+       
                     break;
                 case "3":
                     input = "1";
-                    Console.Clear();
+             
                     break;
                 default:
                     Console.WriteLine("Please select a valid input. Press enter to try again.");
                     Console.ReadLine();
-                    Console.Clear();
                     break;
             }
         }
@@ -148,16 +149,16 @@ namespace Capstone
             {
                 case "1":
                     input = "4";
-                    Console.Clear();
+
                     break;
                 case "2":
                     input = "2";
-                    Console.Clear();
+
                     break;
                 default:
                     Console.WriteLine("Please select a valid input. Press enter to try again.");
                     Console.ReadLine();
-                    Console.Clear();
+
                     break;
             }
         }
@@ -178,7 +179,7 @@ namespace Capstone
             if (result[0] == "0")
             {
                 input = "3";
-                Console.Clear();
+
                 return;
             }
             Console.Write("What is the arrival date? (MM/DD/YYYY)");
@@ -196,7 +197,7 @@ namespace Capstone
             {
                 Console.WriteLine("Invalid Input, departure date is before arrival date. Press Enter to try again.");
                 Console.ReadLine();
-                Console.Clear();
+
                 return;
             }
 
@@ -204,7 +205,7 @@ namespace Capstone
             {
                 Console.WriteLine("Invalid Input, Check Campground ID or Date Formats. Press Enter to try again.");
                 Console.ReadLine();
-                Console.Clear();
+
                 return;
             }
 
@@ -221,7 +222,7 @@ namespace Capstone
                 reservation.Reservation_from_date = from_date;
                 reservation.Reservation_to_date = to_date;
                 input = "5";
-                Console.Clear();
+
             }
             //else
             //{
@@ -250,7 +251,7 @@ namespace Capstone
                 if (siteInput == 0)
                 {
                     input = "4";
-                    Console.Clear();
+
                     return;
                 }
                 foreach (Site site in availableSites)
@@ -263,7 +264,7 @@ namespace Capstone
                         Console.WriteLine($"The reservation has been made and the confirmation id is: {BookReservation(reservation)}");
                         Console.WriteLine("Press enter to go to the main screen.");
                         Console.ReadLine();
-                        Console.Clear();
+
                         input = "1";
                     }
                 }
@@ -271,7 +272,7 @@ namespace Capstone
             else
             {
                 Console.WriteLine("Please enter a valid input.");
-                Console.Clear();
+
                 input = "5";
             }
         }
