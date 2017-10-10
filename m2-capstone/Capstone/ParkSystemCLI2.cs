@@ -19,7 +19,7 @@ namespace Capstone
 
         public void RunCLI()
         {
-            while (true)
+            while (input != "q")
             {
                 switch (input)
                 {
@@ -47,7 +47,7 @@ namespace Capstone
         {
             ParkSqlDAL dal = new ParkSqlDAL(connectionString);
             List<Park> parks = dal.GetAllParks();
-            Park selectedPark = new Park();
+            //Park selectedPark = new Park();
 
 
             bool menuOpen = true;
@@ -61,15 +61,17 @@ namespace Capstone
                 }
                 Console.WriteLine("Q) Quit");
 
-                string input = Console.ReadLine();
+                string userInput = Console.ReadLine();
                 // Console.Clear();
 
-                bool number = int.TryParse(input, out int parkNumber);
+                bool number = int.TryParse(userInput, out int parkNumber);
                 if (!(number))
                 {
-                    if (input.ToLower() == "q")
+                    if (userInput.ToLower() == "q")
                     {
+                        input = "q";
                         menuOpen = false;
+                        return selectedPark;
                     }
                     else
                     {
@@ -84,6 +86,7 @@ namespace Capstone
                         selectedPark = parks[parkNumber - 1];
                         Console.WriteLine(selectedPark.ToString());
                         menuOpen = false;
+                        input = "2";
                     }
                     else
                     {
@@ -93,7 +96,6 @@ namespace Capstone
                 }
                 Console.Clear();
             }
-            input = "2";
             return selectedPark;
         }
 
@@ -110,16 +112,20 @@ namespace Capstone
             {
                 case "1":
                     input = "3";
+                    Console.Clear();
                     break;
                 case "2":
                     input = "4";
+                    Console.Clear();
                     break;
                 case "3":
                     input = "1";
+                    Console.Clear();
                     break;
                 default:
+                    Console.WriteLine("Please select a valid input. Press enter to try again.");
+                    Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine("Please select a valid input.");
                     break;
             }
         }
@@ -142,13 +148,16 @@ namespace Capstone
             {
                 case "1":
                     input = "4";
+                    Console.Clear();
                     break;
                 case "2":
                     input = "2";
+                    Console.Clear();
                     break;
                 default:
+                    Console.WriteLine("Please select a valid input. Press enter to try again.");
+                    Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine("Please select a valid input.");
                     break;
             }
         }
@@ -166,6 +175,12 @@ namespace Capstone
 
             Console.Write("Which campground? (enter 0 to cancel)");
             result[0] = Console.ReadLine();
+            if (result[0] == "0")
+            {
+                input = "3";
+                Console.Clear();
+                return;
+            }
             Console.Write("What is the arrival date? (MM/DD/YYYY)");
             result[1] = Console.ReadLine();
             Console.Write("What is the departure date? (MM/DD/YYYY)");
@@ -177,6 +192,22 @@ namespace Capstone
             bool validFromDate = DateTime.TryParse(result[1], out DateTime from_date);
             bool validToDate = DateTime.TryParse(result[2], out DateTime to_date);
 
+            if (DateTime.Compare(from_date, to_date) >= 0)
+            {
+                Console.WriteLine("Invalid Input, departure date is before arrival date. Press Enter to try again.");
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
+            if (!validCampgroundId || !validFromDate || !validToDate)
+            {
+                Console.WriteLine("Invalid Input, Check Campground ID or Date Formats. Press Enter to try again.");
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
             bool containsId = false;
             foreach (Campground campground in campgrounds)
             {
@@ -185,19 +216,21 @@ namespace Capstone
                     containsId = true;
                 }
             }
-            if (validCampgroundId && validFromDate && validToDate && containsId)
+            if (containsId)
             {
                 reservation.Reservation_from_date = from_date;
                 reservation.Reservation_to_date = to_date;
                 input = "5";
-            }
-            else
-            {
                 Console.Clear();
-                Console.WriteLine("Invalid Input, Check Campground ID or Date Formats.");
-                Console.WriteLine();
-                input = "4";
             }
+            //else
+            //{
+            //    Console.Clear();
+            //    Console.WriteLine("Invalid Input, Check Campground ID or Date Formats.");
+            //    Console.WriteLine();
+            //    input = "4";
+            //    Console.Clear();
+            //}
         }
 
         private void MakeReservationMenu()
@@ -213,7 +246,12 @@ namespace Capstone
             bool siteInputValid = int.TryParse(Console.ReadLine(), out int siteInput);
             if (siteInputValid)
             {
-
+                if (siteInput == 0)
+                {
+                    input = "4";
+                    Console.Clear();
+                    return;
+                }
                 foreach (Site site in availableSites)
                 {
                     if (site.Site_id == siteInput)
@@ -224,17 +262,15 @@ namespace Capstone
                         Console.WriteLine($"The reservation has been made and the confirmation id is: {BookReservation(reservation)}");
                         Console.WriteLine("Press enter to go to the main screen.");
                         Console.ReadLine();
+                        Console.Clear();
                         input = "1";
-                    }
-                    else
-                    {
-                        input = "4";
                     }
                 }
             }
             else
             {
                 Console.WriteLine("Please enter a valid input.");
+                Console.Clear();
                 input = "5";
             }
         }
