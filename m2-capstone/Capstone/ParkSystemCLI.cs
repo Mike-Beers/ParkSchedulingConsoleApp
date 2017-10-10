@@ -106,7 +106,7 @@ namespace Capstone
             Console.WriteLine("1) View Campgrounds");
             Console.WriteLine("2) Search For Reservation");
             Console.WriteLine("3) Return to Previous Screen");
-        }
+        }                               
         private void CamprgroundMenu()
         {
             Console.WriteLine("Select A Command");
@@ -116,7 +116,7 @@ namespace Capstone
         private bool SearchForReservationMenu(Park selectedPark)
         {
 
-
+            Console.Clear(); //new
             ViewCampgrounds(selectedPark);
             SiteSqlDAL siteSqlDAL = new SiteSqlDAL(connectionString);
 
@@ -158,7 +158,7 @@ namespace Capstone
             {
                 return false;
             }
-        }
+        }   
         private void MakeReservationMenu()
         {
 
@@ -241,7 +241,6 @@ namespace Capstone
         {
             CampgroundSqlDAL campgroundDAL = new CampgroundSqlDAL(connectionString);
             List<Campground> campgrounds = campgroundDAL.GetCampgrounds(selectedPark);
-
             foreach (Campground campground in campgrounds)
             {
                 Console.WriteLine(campground.ToString());

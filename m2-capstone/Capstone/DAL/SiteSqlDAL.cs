@@ -77,7 +77,7 @@ namespace Capstone.DAL
                         "OR @to_date  BETWEEN from_date AND to_date) " +
                         "AND (from_date  BETWEEN  @from_date  AND @to_date " +
                         "OR to_date  BETWEEN @from_date AND @to_date) " +
-                       // "AND (@from_date = from_date " +
+                        // "AND (@from_date = from_date " +
                         //"OR @to_date = to_date) " +
                         "GROUP BY site.site_id)", conn);
                     //selecting anything outside of the bounds, 
