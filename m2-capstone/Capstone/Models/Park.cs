@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Capstone;
 using Capstone.DAL;
+using System.Windows;
 
 namespace Capstone.Models
 {
@@ -27,7 +28,6 @@ namespace Capstone.Models
                 "Area:".PadRight(20) + $" {(String.Format("{0:n0}", Area).ToString() + " sq km")}\n" + 
                 "Annual Visitors:".PadRight(20) + $" {String.Format("{0:n0}", Annual_visit_count).ToString()}\n" + 
                 "Description: \n".PadRight(20) + $"{Description.ToString()}";
-
         }
     }
 }

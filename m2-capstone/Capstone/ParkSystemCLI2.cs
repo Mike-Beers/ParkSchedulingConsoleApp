@@ -133,7 +133,7 @@ namespace Capstone
         {
             CampgroundSqlDAL campgroundDAL = new CampgroundSqlDAL(connectionString);
             List<Campground> campgrounds = campgroundDAL.GetCampgrounds(selectedPark);
-
+            Console.WriteLine($"#:".PadRight(8) + "Campground Name".PadRight(41) +"Open From:".PadRight(16) +"Open To:".PadRight(16) +"Daily Fee".PadRight(5));
             foreach (Campground campground in campgrounds)
             {
                 Console.WriteLine(campground.ToString());
@@ -167,7 +167,7 @@ namespace Capstone
             SiteSqlDAL siteSqlDAL = new SiteSqlDAL(connectionString);
             CampgroundSqlDAL campgroundDAL = new CampgroundSqlDAL(connectionString);
             List<Campground> campgrounds = campgroundDAL.GetCampgrounds(selectedPark);
-
+            Console.WriteLine($"#:".PadRight(8) + "Campground Name".PadRight(41) + "Open From:".PadRight(16) + "Open To:".PadRight(16) + "Daily Fee".PadRight(5));
             foreach (Campground campground in campgrounds)
             {
                 Console.WriteLine(campground.ToString());
@@ -237,6 +237,7 @@ namespace Capstone
         {
             SiteSqlDAL siteSqlDAL = new SiteSqlDAL(connectionString);
             List<Site> availableSites = siteSqlDAL.GetAvailableSites(Convert.ToInt32(result[0]), reservation.Reservation_from_date, reservation.Reservation_to_date);
+            Console.WriteLine($"Site ID:".PadRight(11) + "Site #:".PadRight(11) + "Max Occupancy:".PadRight(16) + "Wheelchair Accessible:".PadRight(25) + "Max RV Length:".PadRight(16) + "Utilities:".PadRight(14) + "Total Cost:".PadRight(10));
             foreach (Site site in availableSites)
             {
                 Console.WriteLine(site.ToString() + siteSqlDAL.GetCost(Convert.ToInt32(result[0]), reservation.Reservation_from_date, reservation.Reservation_to_date));
